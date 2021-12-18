@@ -159,3 +159,70 @@ seleniumpractice.url=http://seleniumpractise.blogspot.com/2016/08/how-to-use-exp
 
 please goto TestBase class
 and comment Lines related to WebDriverWait
+==============================
+
+WebDriverWait wait = new WebDriverWait(driver, 30);
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[.='WebDriver']")));
+
+
+
+WebDriverWait class is used for Explicit wait in Selenium.
+we specify our driver object and timeout seconds in constructor.
+
+wait.until() -> method is used to wait until certain condition becomes true.
+
+wait.until(ExpectedConditions.trafficLightToBeGreen());
+
+ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[.='WebDriver']") => is used to specify the condition.
+This class has many methods that we can use as a condition.
+
+visibilityOfElementLocated(By.xpath("//p[.='WebDriver']") => this method accepts a By locator and waits until it is visible on the page.
+
+Lets say, you can locate the webelement using ID, and need to wait for the text to change to "WebDriver". In that case we can use the condition the following way:
+
+wait.until(ExpectedConditions.textToBe( By.id("demo") ,"WebDriver" ));
+
+textToBe(locator(By.locator), expectedText)
+============================
+
+@Test
+public void cheapInternetSpeedTest() {
+
+}
+
+speedtest.url=https://www.speedtest.net
+
+wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("gauge-speed-text"))); => accepts By.locator and waits until element that matches the locator disappears
+
+wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.className("gauge-speed-text")))); ==> accepts WebElement, wait until that elem disappears
+
+WebElement loading = driver.findElement(By.className("gauge-speed-text"));
+wait.until(ExpectedConditions.invisibilityOf(loading));
+
+
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for invisibility of [[ChromeDriver: chrome on MAC (34d640a4d0f4e4d084ce3a31c8081ee3)] -> class name: gauge-speed-text] (tried for 6 second(s) with 500 milliseconds interval)
+
+The above error means that Explicit wait condition was not met within specified time window(6 seconds).
+
+In this case , we can increase timeout seconds.
+
+
+Sedat Berk — Today at 3:57 PM
+if we put 2 minutes and its done in 30 second its ganna go next element after 30 second or 2 minutes?
+
+No, it will not keep waiting for 2 minutes. once the condition is met in 30 seconds, it will goto next step.
+=======================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
