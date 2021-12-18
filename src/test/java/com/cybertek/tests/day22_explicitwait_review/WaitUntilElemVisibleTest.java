@@ -17,9 +17,26 @@ public class WaitUntilElemVisibleTest extends TestBase {
         startTimer.click();
         //<p id="demo">WebDriver</p> wait until this is visible
         WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[.='WebDriver']")));
-        System.out.println("WEBDRIVER is now visible");
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[.='WebDriver']")));
+//        System.out.println("WEBDRIVER is now visible");
 
         wait.until(ExpectedConditions.textToBe( By.id("demo") ,"WebDriver" ));
     }
+
+    @Test
+    public void cheapInternetSpeedTest() {
+        driver.get(ConfigurationReader.getProperty("speedtest.url"));
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        //wait until Finding message disappears
+//        WebElement findingLabel = driver.findElement(By.xpath("//div[.='Finding optimal server...']"));
+//        wait.until(ExpectedConditions.invisibilityOf(findingLabel));
+        //wait until "change server" link is displayed
+
+        //click on Go button
+
+        //wait until element with class gauge-speed-needle disappears
+
+
+    }
+
 }
