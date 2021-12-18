@@ -45,12 +45,21 @@ public class CherCherWaitPracticeTest extends TestBase {
         wait.until(ExpectedConditions.elementToBeClickable(button));
 
         System.out.println("cher cher button enabled = " + button.isEnabled());
-
     }
 
     @Test
     public void waitForCheckBoxIsCheckedTest() {
+        WebElement checkbox = driver.findElement(By.id("ch"));
+        System.out.println("checkbox is checked = " + checkbox.isSelected());
 
+        WebElement enableCheckBoxBtn = driver.findElement(By.id("checkbox"));
+        enableCheckBoxBtn.click();
+
+        //wait until checkbox is selected
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        wait.until(ExpectedConditions.elementToBeSelected(checkbox));
+
+        System.out.println("checkbox is checked = " + checkbox.isSelected());
     }
 
 }
