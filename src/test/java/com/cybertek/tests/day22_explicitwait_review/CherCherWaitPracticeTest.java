@@ -25,12 +25,26 @@ public class CherCherWaitPracticeTest extends TestBase {
         wait.until(ExpectedConditions.alertIsPresent());
 
         //org.openqa.selenium.NoAlertPresentException: no such alert
+        //driver.switchTo().alert().accept();
+
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
 
     @Test
     public void waitForButtonEnabledTest() {
+        WebElement button = driver.findElement(By.id("disable"));
+        System.out.println("cher cher button enabled = " + button.isEnabled()); //false
+
+        //click on Enable button
+        WebElement enableBtn = driver.findElement(By.id("enable-button"));
+        enableBtn.click();
+
+        //wait until the button is enabled
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.elementToBeClickable(button));
+
+        System.out.println("cher cher button enabled = " + button.isEnabled());
 
     }
 
