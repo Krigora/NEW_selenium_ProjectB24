@@ -39,9 +39,12 @@ public class WaitUntilElemVisibleTest extends TestBase {
 
         //wait until element with class gauge-speed-needle disappears
         //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("gauge-speed-text")));
+        //<canvas class="gauge-speed-text" width="656px" height="656px"></canvas>
         WebElement speedElem = driver.findElement(By.className("gauge-speed-text"));
+        //wait for speedElem to appear / be visible first
         wait.until(ExpectedConditions.visibilityOf(speedElem));
 
+        //wait for speedElem to disappear/ to be invisible
         wait.until(ExpectedConditions.invisibilityOf(speedElem));
     }
 
