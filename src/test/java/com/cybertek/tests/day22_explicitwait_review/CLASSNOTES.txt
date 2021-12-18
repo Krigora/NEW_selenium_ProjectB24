@@ -159,4 +159,3 @@ seleniumpractice.url=http://seleniumpractise.blogspot.com/2016/08/how-to-use-exp
 
 please goto TestBase class
 and comment Lines related to WebDriverWait
-
