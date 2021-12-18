@@ -46,6 +46,9 @@ public class WaitUntilElemVisibleTest extends TestBase {
 
         //wait for speedElem to disappear/ to be invisible
         wait.until(ExpectedConditions.invisibilityOf(speedElem));
+        /**
+         * HOMETASK: PRINT DOWNLOAD AND UPLOAD SPEEDS
+         */
     }
 
 }
