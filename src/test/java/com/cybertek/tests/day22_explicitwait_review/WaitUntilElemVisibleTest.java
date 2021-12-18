@@ -31,12 +31,18 @@ public class WaitUntilElemVisibleTest extends TestBase {
 //        WebElement findingLabel = driver.findElement(By.xpath("//div[.='Finding optimal server...']"));
 //        wait.until(ExpectedConditions.invisibilityOf(findingLabel));
         //wait until "change server" link is displayed
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Change Server")));
 
-        //click on Go button
+        //click on Go button <span class="start-text" style="opacity: 1;">Go</span>
+        WebElement go = driver.findElement(By.className("start-text"));
+        go.click();
 
         //wait until element with class gauge-speed-needle disappears
+        //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("gauge-speed-text")));
+        WebElement speedElem = driver.findElement(By.className("gauge-speed-text"));
+        wait.until(ExpectedConditions.visibilityOf(speedElem));
 
-
+        wait.until(ExpectedConditions.invisibilityOf(speedElem));
     }
 
 }
