@@ -213,16 +213,30 @@ if we put 2 minutes and its done in 30 second its ganna go next element after 30
 No, it will not keep waiting for 2 minutes. once the condition is met in 30 seconds, it will goto next step.
 =======================================
 
+chercher.url=https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver
 
+add new class CherCherWaitPracticeTest
 
+@BeforeMethod
+public void gotoHomePage() {
+	driver.get(ConfigurationReader.getProperty("chercher.url"));
+}
 
+@Test
+public void waitForAlertTest() {
 
+}
 
+@Test
+public void waitForButtonEnabledTest() {
 
+}
 
+@Test
+public void waitForCheckBoxIsCheckedTest() {
 
+}
 
-
-
-
+when we have @BeforeMethod in both TestBase and Test child classes, @BeforeMethod of TestBase parent class runs first, then @BeforeMethod of child class runs.
+It is useful when @Test methods need same initial step.
 
