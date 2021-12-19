@@ -24,5 +24,6 @@ public class EdmundsNewCarSearchTest extends TestBase {
         //click on Go
         newCarPage.goBtn.click();
 
+
     }
 }
