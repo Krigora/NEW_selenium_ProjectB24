@@ -210,6 +210,34 @@ hello helloo!
 When we create object of child class ->EdmundsHomePage, it first runs the constructor of parent class - BasePage
 
 Benefit is : we are reusing PageFactory.initElements(driver, this); and do not have to add into child class Page classes.
+==============================================
+
+
+TestNG framework structure:
+	src.test.java
+		com.cybertek
+			pages :
+				BasePage
+				OtherPages for application extends BasePage
+			tests:
+				TestBase:
+				otherTest classes extends TestBase
+			utils:
+				Driver
+				BrowserUtils
+				ConfigurationReader
+
+	configuration.properties
+	pom.xml
+
+
+
+
+
+
+
+
+
 
 
 

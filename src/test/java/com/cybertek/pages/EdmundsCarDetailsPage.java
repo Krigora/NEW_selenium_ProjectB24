@@ -8,7 +8,7 @@ import static org.testng.Assert.*;
 public class EdmundsCarDetailsPage extends BasePage {
 
     @FindBy(xpath = "//span[@class='d-inline-block']")
-    public WebElement msrpRange;
+    public WebElement msrpRange; //price range
 
     public String getMsrpRangeValue() {
         return msrpRange.getText();
