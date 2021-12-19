@@ -16,7 +16,10 @@ public class EdmundsNewCarSearchTest extends TestBase {
 
         EdmundsNewCarPage newCarPage = new EdmundsNewCarPage();
         newCarPage.selectMake("Audi");
+        newCarPage.selectModel("e-tron GT");
 
+        //enter zipcode
+        //click on Go
 
     }
 }

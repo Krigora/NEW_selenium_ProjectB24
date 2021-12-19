@@ -14,6 +14,12 @@ public class EdmundsNewCarPage extends BasePage {
     @FindBy(name = "select-model")
     public WebElement model;
 
+    @FindBy(xpath = "//input[@data-tracking-id='new_cars_index_mmy_make_model_tab_zip_code_entry']")
+    public WebElement zipCode;
+
+    @FindBy(xpath = "//button[@data-tracking-id='new_cars_index_mmy_make_model_tab_submit']")
+    public WebElement goBtn;
+
     public void selectMake(String carMake) {
         Select makeDropDown = new Select(make); //creating Select class object because it is drop down
         makeDropDown.selectByVisibleText(carMake);
