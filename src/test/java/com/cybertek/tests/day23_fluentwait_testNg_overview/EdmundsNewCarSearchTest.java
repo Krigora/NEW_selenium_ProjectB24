@@ -11,7 +11,7 @@ public class EdmundsNewCarSearchTest extends TestBase {
         driver.get(ConfigurationReader.getProperty("edmunds.url"));
         EdmundsHomePage homePage = new EdmundsHomePage();
         homePage.isCurrentPage();
-        homePage.gotoNewCarPricingPage();
+        homePage.gotoNewCarPricingPage();//BASEPAGE
 
     }
 }
