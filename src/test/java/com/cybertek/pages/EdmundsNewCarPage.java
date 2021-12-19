@@ -11,9 +11,17 @@ public class EdmundsNewCarPage extends BasePage {
     @FindBy(name = "select-make")
     public WebElement make;
 
+    @FindBy(name = "select-model")
+    public WebElement model;
+
     public void selectMake(String carMake) {
         Select makeDropDown = new Select(make); //creating Select class object because it is drop down
         makeDropDown.selectByVisibleText(carMake);
+    }
+
+    public void selectModel(String carModel) {
+        Select modelDropDown = new Select(model);
+        modelDropDown.selectByVisibleText(carModel);
     }
 
     @Override
