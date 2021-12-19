@@ -22,10 +22,18 @@ public abstract class BasePage {
     public BasePage() {
         driver = Driver.getDriver();
         PageFactory.initElements(driver, this);
+        // isCurrentPage(); automatically checks if correct page. when we create objects
     }
 
     public void gotoNewCarPricingPage() {
         newCarPricingLink.click();
     }
+
+    /**
+     * abstract method to be implented by child Page Object classes
+     * This is to verify that we are at correct page.
+     * using title of the page or anything other
+     */
+    public abstract void isCurrentPage();
 
 }
