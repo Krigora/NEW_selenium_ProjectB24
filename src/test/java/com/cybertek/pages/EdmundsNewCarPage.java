@@ -12,7 +12,7 @@ public class EdmundsNewCarPage extends BasePage {
     public WebElement make;
 
     public void selectMake(String carMake) {
-        Select makeDropDown = new Select(make);
+        Select makeDropDown = new Select(make); //creating Select class object because it is drop down
         makeDropDown.selectByVisibleText(carMake);
     }
 
