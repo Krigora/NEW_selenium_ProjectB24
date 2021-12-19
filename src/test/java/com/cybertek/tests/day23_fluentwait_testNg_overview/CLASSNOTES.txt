@@ -135,3 +135,81 @@ TestBase -> inherited by test classes
 BasePage -> inherited by Page object classes
 		GoogleHomePage -> @FindBy etc
 		EdmundsHomePage -> -> @FindBy etc
+=======================================
+
+TestBase:
+	@BeforeMethod
+	public void setUp() {
+		opening webdriver, maximize, impl wait. -> Driver.getDriver()
+	}
+	@AfterMethod
+	public void tearDown() {
+		//close driver/browser
+	}
+
+public class EdmundsTest extends TestBase
+{
+	@Test
+	public void searchForNewCarPriceTest() {
+		///navigate homepage
+		//create page class objects
+	}
+}
+
+=======================
+
+POM design pattern -> creating a java class for each page of the application.
+
+BasePage:
+	- WebElements that common for each page
+	- Constructor with PageFactory.initElements
+	- method that can be used by all pages.
+	- anything that is common for all pages
+
+EdmundsHomePage extends BasePage:
+	@FindBy WebElements
+	methods
+	--constructor
+
+We added constructor in BasePage parent class. and it has PageFactory.initElements.
+So when we write our EdmundsHomePage , we do not have to add the constructor and PageFactory any more.
+Why. because When we create object of child class ->EdmundsHomePage, it first runs the constructor of parent class - BasePage
+
+public abstract class BasePage {
+
+	public BasePage() {
+		System.out.println("In BasePage constructor...")
+        driver = Driver.getDriver();
+
+        System.out.println("Initializing all elements...")
+        PageFactory.initElements(driver, this);
+    }
+}
+
+public class EdmundsHomePage extends BasePage {
+
+	@FindBy(id = "user")
+	public WebElement userName;
+
+	public EdmundsHomePage() {
+		super();//calling BasePage constructor
+		System.out.println("hello helloo!");
+	}
+
+}
+
+BasePage page = new BasePage(); This will not work, we decided to make BasePage abstract so that nobody can instantiate it.
+
+EdmundsHomePage page = new EdmundsHomePage();
+
+Prints:
+In BasePage constructor...
+Initializing all elements...
+hello helloo!
+
+When we create object of child class ->EdmundsHomePage, it first runs the constructor of parent class - BasePage
+
+Benefit is : we are reusing PageFactory.initElements(driver, this); and do not have to add into child class Page classes.
+
+
+
