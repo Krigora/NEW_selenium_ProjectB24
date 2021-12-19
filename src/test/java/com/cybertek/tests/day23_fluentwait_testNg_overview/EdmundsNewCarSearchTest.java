@@ -19,7 +19,10 @@ public class EdmundsNewCarSearchTest extends TestBase {
         newCarPage.selectModel("e-tron GT");
 
         //enter zipcode
+        newCarPage.zipCode.clear();
+        newCarPage.zipCode.sendKeys("22102");
         //click on Go
+        newCarPage.goBtn.click();
 
     }
 }
