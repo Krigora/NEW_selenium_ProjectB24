@@ -44,7 +44,7 @@ public class AlertExamplesTest {
         //assert the confirmation message is displayed
         WebElement resultMsg = driver.findElement(By.id("result"));
         System.out.println("resultMsg.getText() = " + resultMsg.getText());
-        assertEquals(resultMsg.getText(), "You successfuly clicked an alert");
+        assertEquals(resultMsg.getText(), "You successfully clicked an alert");
     }
 
     @Test
